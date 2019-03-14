@@ -21,6 +21,16 @@
   ],
   "profile": {
     "name": "typicode"
-  }  
+  },
+  "todos": [
+    {
+      "id": 1,
+      "name": "some name",
+      "technology": "some technology",
+      "description": "some description",
+      "customer": "some customer",
+      "date": "some Date"
+    }
+  ]
 
 }
