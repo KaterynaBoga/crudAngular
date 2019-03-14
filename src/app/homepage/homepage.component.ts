@@ -10,14 +10,19 @@ import { TodoService } from '../todo.service';
 export class HomepageComponent implements OnInit {
   todos: Todo[] = [];
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) { 
+
+  }
 
   ngOnInit() {
     this.getTodos();
   }
   getTodos(): void {
     this.todoService.getTodos()
-        .subscribe(todos => this.todos = todos.slice(1, 5));
+        .subscribe((todos) => {
+
+          this.todos = todos.slice(1, 5)
+        });
   }
 
 }

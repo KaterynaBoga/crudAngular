@@ -15,8 +15,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TodoService {
+  private url = 'http://localhost:3000/todos';
+
   constructor(
-    private url = 'http://localhost:3000/comments',
     private http: HttpClient,
     private messageService: MessageService
   ) { }

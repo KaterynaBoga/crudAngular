@@ -1,0 +1,10 @@
+<h2>Мои задачи</h2>
+
+<ul class="heroes">
+  <li *ngFor="let todo of todos">
+    <a routerLink="/detail/{{ hero.id }}">
+      <span class="badge"> {{ todo.id }} </span> {{ todo.name }}
+    </a>  
+    <button class="delete" (click)="delete(todo)">x</button>
+  </li>
+</ul>

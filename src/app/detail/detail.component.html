@@ -1,0 +1,16 @@
+<div *ngIf="todo">
+  <h2>{{todo.name | uppercase}} Информация о задаче</h2>
+  <div><span>id: </span>{{todo.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="todo.name" placeholder="name"/>
+      <input [(ngModel)]="todo.technology" placeholder="technology"/>
+      <input [(ngModel)]="todo.description" placeholder="description"/>
+      <input [(ngModel)]="todo.customer" placeholder="customer"/>
+      <input [(ngModel)]="todo.date" placeholder="date"/>
+    </label>
+  </div>
+  <button (click)="goBack()">Вернуться на список задач</button>
+  <button (click)="save()">Сохранить</button>
+  <button (click)="edit()">Редактировать</button>
+</div>

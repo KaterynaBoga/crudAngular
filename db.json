@@ -13,24 +13,23 @@
       "postId": 1
     }
   ],
-  "users": [ 
+  "users": [
     {
       "id": 1,
       "name": "John"
-    }    
+    }
   ],
   "profile": {
     "name": "typicode"
   },
   "todos": [
     {
-      "id": 1,
-      "name": "some name",
-      "technology": "some technology",
-      "description": "some description",
-      "customer": "some customer",
-      "date": "some Date"
+      "id": "number",
+      "name": "string",
+      "technology": "string",
+      "description": "string",
+      "customer": "string",
+      "date": "Date"
     }
   ]
-
 }

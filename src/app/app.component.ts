@@ -7,12 +7,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'crud';
+  title = 'crud "Задачи"';
 
   constructor(private httpClient: HttpClient) {
-    this.httpClient.get('http://localhost:3000/comments').subscribe(data => {
-      console.log(data);
-    })
+
     
   }
 
