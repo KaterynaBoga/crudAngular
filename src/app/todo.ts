@@ -4,6 +4,11 @@ export class Todo {
     technology: string;
     description: string;
     customer: string;
-    date: Date;
+    constructor(
+        id: number,
+        name: string,
+        technology: string,
+        description: string,
+        customer: string
+    ) {}
   }
-  

@@ -24,12 +24,20 @@
   },
   "todos": [
     {
-      "id": "number",
-      "name": "string",
+      "id": "id",
+      "name": "name",
       "technology": "string",
       "description": "string",
       "customer": "string",
       "date": "Date"
+    },
+    {
+      "name": "Новая задача",
+      "id": "biJNdoM"
+    },
+    {
+      "name": "еще одна новая задача",
+      "id": "rRpDEg7"
     }
   ]
 }

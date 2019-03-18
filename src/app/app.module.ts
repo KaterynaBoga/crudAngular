@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TodosComponent } from './todos/todos.component';
 import { DetailComponent } from './detail/detail.component';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     TodosComponent,
-    DetailComponent
+    DetailComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, FormsModule

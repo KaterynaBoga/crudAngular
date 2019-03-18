@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
 
   getTodo(): void {
    const id = +this.route.snapshot.paramMap.get('id');
-   this.todoService.getTodos(id)
+   this.todoService.getTodo(id)
     .subscribe(todo => this.todo = todo);
   }
 

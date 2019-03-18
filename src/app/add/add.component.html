@@ -1,0 +1,89 @@
+<!--<div>-->
+  <!--<label>Название задачи:-->
+    <!--<input #todoName />-->
+  <!--</label>-->
+
+  <!--<label>Используемые технологии:-->
+    <!--<input #todoTechnology />-->
+  <!--</label>-->
+
+  <!--<button name="todoAdd" (click)="add({-->
+    <!--name: todoName.value,-->
+    <!--technology: todoTechnology.value-->
+  <!--});-->
+  <!--todoName.value='';-->
+  <!--todoTechnology.value='' ">Добавить задачу</button>-->
+<!--</div>-->
+
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="todos.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo"
+               [(ngModel)]="todos.customer" name="alterEgo">
+      </div>
+
+      <div class="form-group">
+        <label for="technology">Hero Power</label>
+        <select class="form-control" id="technology"
+                required
+                [(ngModel)]="todos.technology" name="technology"
+                #technology="ngModel">
+          <option *ngFor="let tech of technology" [value]="tech">{{tech}}</option>
+        </select>
+        <div [hidden]="technology.valid || technology.pristine" class="alert alert-danger">
+          Power is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newTodo(); todoForm.reset()">New Todo</button>
+      <i>with</i> reset
+
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-default" (click)="newTodo()">New Todo</button>
+      <i>without</i> reset
+
+      <!-- NOT SHOWN IN DOCS -->
+      <div>
+        <hr>
+        Name via form.controls = {{showFormControls(todoForm)}}
+      </div>
+      <!-- - -->
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9">{{ todos.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Customer</div>
+      <div class="col-xs-9">{{ todos.customer }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Technology</div>
+      <div class="col-xs-9">{{ todos.technology }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>
+
+

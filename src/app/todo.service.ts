@@ -30,6 +30,15 @@ export class TodoService {
       );
   }
 
+  getTodo(id: number): Observable<Todo> {
+    const url = `${this.url}/${id}`;
+    return this.http.get<Todo>(url)
+        .pipe(
+            tap(_ => this.log(`найдено совпадение задач id=${id}`)),
+            catchError(this.handleError<Todo>(`getTodo id=${id}`))
+        );
+  }
+
   addTodo(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.url, todo, httpOptions)
       .pipe(
