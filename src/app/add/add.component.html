@@ -1,88 +1,48 @@
-<!--<div>-->
-  <!--<label>Название задачи:-->
-    <!--<input #todoName />-->
-  <!--</label>-->
-
-  <!--<label>Используемые технологии:-->
-    <!--<input #todoTechnology />-->
-  <!--</label>-->
-
-  <!--<button name="todoAdd" (click)="add({-->
-    <!--name: todoName.value,-->
-    <!--technology: todoTechnology.value-->
-  <!--});-->
-  <!--todoName.value='';-->
-  <!--todoTechnology.value='' ">Добавить задачу</button>-->
-<!--</div>-->
 
 <div class="container">
   <div [hidden]="submitted">
-    <h1>Hero Form</h1>
-    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name"
-               required
-               [(ngModel)]="todos.name" name="name"
-               #name="ngModel">
-        <div [hidden]="name.valid || name.pristine"
-             class="alert alert-danger">
-          Name is required
-        </div>
-      </div>
+    <h1>Новая задача</h1>
+    <form (ngSubmit)="onSubmit()" [formGroup]='todoForm' >
+        <label for="name">Наименование задачи</label>
+        <input type="text" class="form-control" formControlName='name' required>        
 
-      <div class="form-group">
-        <label for="alterEgo">Alter Ego</label>
-        <input type="text" class="form-control" id="alterEgo"
-               [(ngModel)]="todos.customer" name="alterEgo">
-      </div>
+        <label for="customer">Заказчик</label>
+        <input type="text" class="form-control" formControlName='customer'>
 
-      <div class="form-group">
-        <label for="technology">Hero Power</label>
-        <select class="form-control" id="technology"
-                required
-                [(ngModel)]="todos.technology" name="technology"
-                #technology="ngModel">
-          <option *ngFor="let tech of technology" [value]="tech">{{tech}}</option>
-        </select>
-        <div [hidden]="technology.valid || technology.pristine" class="alert alert-danger">
-          Power is required
-        </div>
-      </div>
+        <label for="technology">Используемые технологии</label>
+        <input type="text" class="form-control" formControlName='technology'>
 
-      <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newTodo(); todoForm.reset()">New Todo</button>
-      <i>with</i> reset
+        <label for="description">Описание</label>
+        <input type="text" class="form-control" formControlName='description'>
 
-      &nbsp;&nbsp;
-      <button type="button" class="btn btn-default" (click)="newTodo()">New Todo</button>
-      <i>without</i> reset
 
-      <!-- NOT SHOWN IN DOCS -->
-      <div>
-        <hr>
-        Name via form.controls = {{showFormControls(todoForm)}}
-      </div>
-      <!-- - -->
+      <button type="submit" class="btn btn-success" [disabled]="!todoForm.valid">Добавить</button>
+      <button type="button" class="btn btn-default" (click)="newTodo(); todoForm.reset()">Создать новую задачу</button>
     </form>
   </div>
 
   <div [hidden]="!submitted">
-    <h2>You submitted the following:</h2>
+    <h2>Добавлено следующее:</h2>
+
     <div class="row">
-      <div class="col-xs-3">Name</div>
-      <div class="col-xs-9">{{ todos.name }}</div>
+      <div class="col-xs-3">Номер задачи</div>
+      <div class="col-xs-9">{{ todoForm.name }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Название задачи</div>
+      <div class="col-xs-9">{{ todoForm.name }}</div>
     </div>
     <div class="row">
-      <div class="col-xs-3">Customer</div>
-      <div class="col-xs-9">{{ todos.customer }}</div>
+      <div class="col-xs-3">Заказчик</div>
+      <div class="col-xs-9">{{ todoForm.customer }}</div>
     </div>
     <div class="row">
-      <div class="col-xs-3">Technology</div>
-      <div class="col-xs-9">{{ todos.technology }}</div>
+      <div class="col-xs-3">Используемые технологии</div>
+      <div class="col-xs-9">{{ todoForm.technology }}</div>
     </div>
     <br>
-    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+    <button class="btn btn-primary" (click)="submitted=false">Редактировать</button>
   </div>
 </div>
 

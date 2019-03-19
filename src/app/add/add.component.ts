@@ -1,64 +1,53 @@
-// import { Component, OnInit } from '@angular/core';
-//
-// import { Todo } from '../todo';
-// import { TodoService } from '../todo.service';
-//
-// @Component({
-//   selector: 'app-add',
-//   templateUrl: './add.component.html',
-//   styleUrls: ['./add.component.css']
-// })
-// export class AddComponent implements OnInit {
-//   todos: Todo[];
-//
-//   constructor(private todoService: TodoService) { }
-//
-//   ngOnInit() {
-//   }
-//
-//   add(name: string, technology: string): void {
-//     name = name.trim();
-//     technology = technology.trim();
-//     if (!name) { return; }
-//     this.todoService.addTodo({ name } as Todo)
-//         .subscribe(todo => {
-//           this.todos.push(todo);
-//         });
-//   }
-//
-// }
-
 import { Component } from '@angular/core';
-
+import { FormGroup, FormControl } from '@angular/forms';
+import { Validators } from '@angular/forms';
 import { Todo } from '../todo';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent {
+export class AddComponent {  
 
-  technology = ['Really Smart', 'Super Flexible',
-    'Super Hot', 'Weather Changer'];
+  todoForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    technology: new FormControl(''),
+    description: new FormControl(''),
+    customer: new FormControl(''),
+  })
+  
+  todo = new Todo(
+    this.todoForm.value.name, 
+    this.todoForm.value.technology,
+    this.todoForm.value.description,
+    this.todoForm.value.customer,
+    this.todoForm.value.id
+  )
 
-  todos = new Todo(18, 'Dr IQ', this.technology[0], 'Chuck Overstreet', 'test');
-
+  constructor(
+    private todoService: TodoService
+  ) { }
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit() {
+    console.log(this.todoForm.value);
 
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.todos); }
+    const newTodo = new Todo(
+      this.todoForm.value.name, 
+      this.todoForm.value.technology,
+      this.todoForm.value.description,
+      this.todoForm.value.customer,
+      this.todoForm.value.id
+    )
+
+    this.todoService.addTodo(newTodo).subscribe((todo) => {
+      console.log(todo);
+    })
+  }
 
   newTodo() {
-    this.todos = new Todo(42, '', '', '', '');
+    this.todo = new Todo('', [], '', '', '');
   }
-
-  showFormControls(form: any) {
-    return form && form.controls['name'] &&
-        form.controls['name'].value; // Dr. IQ
-  }
-
-
 }

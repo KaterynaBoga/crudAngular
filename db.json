@@ -28,8 +28,7 @@
       "name": "name",
       "technology": "string",
       "description": "string",
-      "customer": "string",
-      "date": "Date"
+      "customer": "string"
     },
     {
       "name": "Новая задача",
@@ -38,6 +37,41 @@
     {
       "name": "еще одна новая задача",
       "id": "rRpDEg7"
+    },
+    {
+      "name": "MARK",
+      "technology": "ANGULAR",
+      "description": "HELLO WORLD",
+      "customer": "TOJE",
+      "id": "M_ZRmX8"
+    },
+    {
+      "name": "777777",
+      "technology": "777",
+      "description": "777",
+      "customer": "777",
+      "id": "iw5IIi_"
+    },
+    {
+      "name": "555",
+      "technology": "555",
+      "description": "555",
+      "customer": "555",
+      "id": "41_MbkX"
+    },
+    {
+      "name": "555",
+      "technology": "555",
+      "description": "555",
+      "customer": "555",
+      "id": "hXeN8mF"
+    },
+    {
+      "name": "hhhh",
+      "technology": "hh",
+      "description": "hh",
+      "customer": "hh",
+      "id": "iSDXVwL"
     }
   ]
 }

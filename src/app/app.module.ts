@@ -11,6 +11,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { TodosComponent } from './todos/todos.component';
 import { DetailComponent } from './detail/detail.component';
 import { AddComponent } from './add/add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { AddComponent } from './add/add.component';
     AddComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, AppRoutingModule, FormsModule
+    BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

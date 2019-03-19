@@ -1,14 +1,9 @@
 export class Todo {
-    id: number;
-    name: string;
-    technology: string;
-    description: string;
-    customer: string;
     constructor(
-        id: number,
-        name: string,
-        technology: string,
-        description: string,
-        customer: string
+        public name: string,
+        public technology: string[],
+        public description: string,
+        public customer: string,
+        public id?: string
     ) {}
   }
