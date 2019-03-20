@@ -12,6 +12,7 @@ import { TodosComponent } from './todos/todos.component';
 import { DetailComponent } from './detail/detail.component';
 import { AddComponent } from './add/add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReadComponent } from './read/read.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomepageComponent,
     TodosComponent,
     DetailComponent,
-    AddComponent
+    AddComponent,
+    ReadComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, ReactiveFormsModule

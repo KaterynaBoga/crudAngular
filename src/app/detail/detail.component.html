@@ -1,15 +1,25 @@
 <div *ngIf="todo">
-  <h2>Информация о задаче: {{todo.name | uppercase}} </h2>
-  <div><span>id: </span>{{todo.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="todo.name" placeholder="name"/>
-      <input [(ngModel)]="todo.technology" placeholder="technology"/>
-      <input [(ngModel)]="todo.description" placeholder="description"/>
-      <input [(ngModel)]="todo.customer" placeholder="customer"/>
-    </label>
-  </div>
-  
-  <button (click)="goBack()">Вернуться на список задач</button>
-  <button (click)="save()">Сохранить</button>
+    <h2>Информация о задаче: {{todo.name | uppercase}} </h2>
+    <div><span>id: </span>{{todo.id}}</div>
+    <form>
+        <div>
+            <label>Название
+                <input [(ngModel)]="todo.name" placeholder="name"/>
+            </label>
+            <label>Используемые технологии
+                <input [(ngModel)]="todo.technology" placeholder="technology"/>
+            </label>
+            <label>Описание
+                <input [(ngModel)]="todo.description" placeholder="description"/>
+            </label>
+            <label>Заказчик
+                <input [(ngModel)]="todo.customer" placeholder="customer"/>
+            </label>
+        </div>
+
+        <button (click)="goBack()">Вернуться на список задач</button>
+        <button (click)="save()">Сохранить</button>
+    </form>
 </div>
+
+

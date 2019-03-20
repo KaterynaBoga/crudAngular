@@ -1,0 +1,13 @@
+<div class="container">
+  <div *ngIf="todo">
+    <h2>Информация о задаче: {{todo.name | uppercase}} </h2>
+    <div><span>id: </span>{{todo.id}}</div>
+    <div><span>Название: </span>{{todo.name}}</div>
+    <div><span>Заказчик: </span>{{todo.customer}}</div>
+    <div><span>Описание: </span>{{todo.description}}</div>
+
+
+    <button class="btn btn-info" (click)="goBack()">Вернуться на список задач</button>
+    <button class="btn btn-success"routerLink="/detail/{{ todo.id }}">Редактировать</button>
+  </div>
+</div>

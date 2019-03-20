@@ -37,4 +37,5 @@ export class DetailComponent implements OnInit {
     this.todoService.updateTodo(this.todo)
       .subscribe(() => this.goBack());
   }
+
 }
