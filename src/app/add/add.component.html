@@ -15,9 +15,11 @@
         <label for="description">Описание</label>
         <input type="text" class="form-control" formControlName='description'>
 
+        <div class="new-button">
+            <button type="submit" class="btn btn-success" [disabled]="!todoForm.valid">Добавить</button>
+            <button type="button" class="btn btn-default" (click)="newTodo(); todoForm.reset()">Создать новую задачу</button>
+        </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!todoForm.valid">Добавить</button>
-      <button type="button" class="btn btn-default" (click)="newTodo(); todoForm.reset()">Создать новую задачу</button>
     </form>
   </div>
 
